@@ -1,7 +1,7 @@
 /*
     Club Ploot: A chat room for your favorite ploot.
     Securing Coding Version.
-    Authors: Nicholas Melchiore, Edgar Zayas, Josh Ottey
+    Authors: Nicholas Melchiore, Edgar Zayas, Josh Ottey, Samarth Muthalya
 */
 
 //For now this is just the Club Ploot main file
