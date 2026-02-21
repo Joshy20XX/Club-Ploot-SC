@@ -5,11 +5,14 @@
 */
 
 //For now this is just the Club Ploot main file
+//UPDATE (Josh): I added the enet library in the directory for the networking.
 #include <iostream>
 #include <fstream>
 #include <sstream>
 #include <string>
 #include <map>
+#include <enet/enet.h>
+
 using namespace std;
 
 //A hash map for the ploot attributes (for now)
