@@ -27,7 +27,7 @@ int main() {
     
     //Declaring ploot
     Ploot ploot;
-    ploot.parsePloot(ploot.ploot_dict, ploot_stream); //Parse the text file
+    ploot.parsePloot(ploot_stream); //Parse the text file
     ploot_stream.close(); //Close the file handling for now
     
     ploot.info(); //Print the ploot's stats from the class file
