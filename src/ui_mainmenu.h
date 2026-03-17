@@ -6,8 +6,8 @@
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
 
-#ifndef MAINMENU_H
-#define MAINMENU_H
+#ifndef UI_MAINMENU_H
+#define UI_MAINMENU_H
 
 #include <QtCore/QVariant>
 #include <QtGui/QAction>
@@ -81,4 +81,4 @@ namespace Ui {
 
 QT_END_NAMESPACE
 
-#endif // MAINMENU_H
+#endif // UI_MAINMENU_H
