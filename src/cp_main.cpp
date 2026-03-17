@@ -11,11 +11,21 @@
 #include <string>
 #include <map>
 #include "ploot.h"
+#include "mainmenu.h"
 using namespace std;
 
 //Main code (work in progress)
-int main() {
+int main(int argc, char* argv[]) {
 
+    QApplication app(argc, argv);
+    QWidget widget;
+
+    Ui::Form ui;
+    ui.setupUi(&widget);
+
+    widget.show();
+    return app.exec();
+    /*
     //C++ file open handling. You can also use fopen() too.
     ifstream ploot_stream("Melissa.ploot");
     
@@ -31,5 +41,6 @@ int main() {
     ploot_stream.close(); //Close the file handling for now
     
     ploot.info(); //Print the ploot's stats from the class file
+    */
 
 }

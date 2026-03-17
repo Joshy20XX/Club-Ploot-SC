@@ -1,0 +1,25 @@
+{
+	"BUILD_DIR" : "C:/Users/vze3h/Desktop/Secure Coding/Club-Ploot-SC/build/clubploot_autogen",
+	"CMAKE_BINARY_DIR" : "C:/Users/vze3h/Desktop/Secure Coding/Club-Ploot-SC/build",
+	"CMAKE_CURRENT_BINARY_DIR" : "C:/Users/vze3h/Desktop/Secure Coding/Club-Ploot-SC/build",
+	"CMAKE_CURRENT_SOURCE_DIR" : "C:/Users/vze3h/Desktop/Secure Coding/Club-Ploot-SC",
+	"CMAKE_SOURCE_DIR" : "C:/Users/vze3h/Desktop/Secure Coding/Club-Ploot-SC",
+	"CROSS_CONFIG" : false,
+	"GENERATOR" : "Ninja",
+	"INCLUDE_DIR" : "C:/Users/vze3h/Desktop/Secure Coding/Club-Ploot-SC/build/clubploot_autogen/include",
+	"INPUTS" : 
+	[
+		"C:/Users/vze3h/Desktop/Secure Coding/Club-Ploot-SC/resources/images/Ploot_Fraymakers.png"
+	],
+	"LOCK_FILE" : "C:/Users/vze3h/Desktop/Secure Coding/Club-Ploot-SC/build/CMakeFiles/clubploot_autogen.dir/AutoRcc_img_resource_3YJK5W5UP7_Lock.lock",
+	"MULTI_CONFIG" : false,
+	"OPTIONS" : [ "--no-zstd", "-name", "img_resource" ],
+	"OUTPUT_CHECKSUM" : "3YJK5W5UP7",
+	"OUTPUT_NAME" : "qrc_img_resource.cpp",
+	"RCC_EXECUTABLE" : "C:/Qt/6.10.2/mingw_64/bin/rcc.exe",
+	"RCC_LIST_OPTIONS" : [ "--list" ],
+	"SETTINGS_FILE" : "C:/Users/vze3h/Desktop/Secure Coding/Club-Ploot-SC/build/CMakeFiles/clubploot_autogen.dir/AutoRcc_img_resource_3YJK5W5UP7_Used.txt",
+	"SOURCE" : "C:/Users/vze3h/Desktop/Secure Coding/Club-Ploot-SC/resources/img_resource.qrc",
+	"USE_BETTER_GRAPH" : true,
+	"VERBOSITY" : 0
+}
