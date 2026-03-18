@@ -1,5 +1,0 @@
-C:/Users/vze3h/Desktop/Secure Coding/Club-Ploot-SC/build/CMakeFiles/clubploot.dir
-C:/Users/vze3h/Desktop/Secure Coding/Club-Ploot-SC/build/CMakeFiles/edit_cache.dir
-C:/Users/vze3h/Desktop/Secure Coding/Club-Ploot-SC/build/CMakeFiles/rebuild_cache.dir
-C:/Users/vze3h/Desktop/Secure Coding/Club-Ploot-SC/build/CMakeFiles/clubploot_autogen_timestamp_deps.dir
-C:/Users/vze3h/Desktop/Secure Coding/Club-Ploot-SC/build/CMakeFiles/clubploot_autogen.dir
