@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>MoonRiver</class>
- <widget class="QMainWindow" name="MoonRiver">
+ <class>Moon_River</class>
+ <widget class="QMainWindow" name="Moon_River">
   <property name="geometry">
    <rect>
     <x>0</x>

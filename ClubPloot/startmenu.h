@@ -24,6 +24,8 @@ private slots:
 
     void on_actionAbout_triggered();
 
+    void on_pushButton_clicked();
+
 private:
     Ui::StartMenu *ui;
 };

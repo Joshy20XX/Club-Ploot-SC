@@ -2,6 +2,8 @@
 #include "./ui_startmenu.h"
 #include <QMessageBox>
 
+#include "moon_river.h"
+
 StartMenu::StartMenu(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::StartMenu)
@@ -33,5 +35,14 @@ void StartMenu::on_actionAbout_triggered()
     aboutBox.setText("Club Ploot\n Authors: Nick Mel, Samarth Muthyala, Edgar Zayas, and Josh Ottey");
     aboutBox.setDefaultButton(QMessageBox::Ok);
     int ret = aboutBox.exec();
+}
+
+
+void StartMenu::on_pushButton_clicked()
+{
+    Moon_River *window = new Moon_River(this);
+    window->show();
+
+    //this->hide();
 }
 
