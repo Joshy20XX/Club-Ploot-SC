@@ -18,6 +18,13 @@ Moon_River::~Moon_River()
     delete ui;
 }
 
+//This is setting the name of the Ploot in Moon River
+void Moon_River::setLabelText(const QString &text)
+{
+    ui->ploot_name->setText(text);
+    ui->ploot_name->setAlignment(Qt::AlignCenter);
+}
+
 void Moon_River::mousePressEvent(QMouseEvent *event)
 {
     QPoint pos = event->pos();

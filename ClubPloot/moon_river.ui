@@ -99,9 +99,7 @@ li.checked::marker { content: &quot;\2612&quot;; }
     </layout>
    </widget>
    <zorder>moon_river_background</zorder>
-   <zorder>ploot_player_sprite</zorder>
    <zorder>ploot_text_bar</zorder>
-   <zorder>ploot_name</zorder>
    <zorder>ploot_player</zorder>
    <zorder>moon_river_tree</zorder>
   </widget>

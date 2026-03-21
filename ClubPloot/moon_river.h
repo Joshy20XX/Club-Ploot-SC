@@ -16,8 +16,11 @@ public:
     explicit Moon_River(QWidget *parent = nullptr);
     ~Moon_River();
 
+void setLabelText(const QString &text);
+
 protected:
     void mousePressEvent(QMouseEvent *event) override;
+
 
 private:
     Ui::Moon_River *ui;

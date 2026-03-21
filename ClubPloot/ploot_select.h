@@ -18,6 +18,8 @@ public:
 private slots:
     void on_pushButton_clicked();
 
+    void on_select_ploot_button_clicked();
+
 private:
     Ui::ploot_select *ui;
 };
