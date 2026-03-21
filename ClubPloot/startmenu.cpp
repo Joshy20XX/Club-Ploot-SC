@@ -3,6 +3,7 @@
 #include <QMessageBox>
 
 #include "moon_river.h"
+#include "ploot_select.h"
 
 StartMenu::StartMenu(QWidget *parent)
     : QMainWindow(parent)
@@ -40,7 +41,7 @@ void StartMenu::on_actionAbout_triggered()
 
 void StartMenu::on_pushButton_clicked()
 {
-    Moon_River *window = new Moon_River(this);
+    ploot_select *window = new ploot_select(this);
     window->show();
 
     //this->hide();
