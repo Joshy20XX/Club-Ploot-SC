@@ -43,8 +43,8 @@
    <widget class="QLabel" name="ploot_player">
     <property name="geometry">
      <rect>
-      <x>80</x>
-      <y>190</y>
+      <x>70</x>
+      <y>150</y>
       <width>41</width>
       <height>51</height>
      </rect>

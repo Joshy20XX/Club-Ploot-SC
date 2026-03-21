@@ -2,6 +2,7 @@
 #define MOON_RIVER_H
 
 #include <QMainWindow>
+#include <QTimer>
 
 namespace Ui {
 class Moon_River;
