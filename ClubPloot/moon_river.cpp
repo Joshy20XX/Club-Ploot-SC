@@ -29,7 +29,7 @@ void Moon_River::mousePressEvent(QMouseEvent *event)
     //Animate the ploot's movement from its current position to the new position
     ui->ploot_player->move(x,y); //Update to the new position
 
-    //Then animate the ploot moving to that new position and avoid flickering
+    //Then animate the ploot_player moving to that new position and avoid flickering
     QPropertyAnimation *anim = new QPropertyAnimation(ui->ploot_player, "geometry", this);
     anim->setDuration(1000);
     anim->setStartValue(ploot_pos);
