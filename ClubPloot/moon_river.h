@@ -22,6 +22,9 @@ protected:
     void mousePressEvent(QMouseEvent *event) override;
 
 
+private slots:
+    void on_ploot_text_send_clicked();
+
 private:
     Ui::Moon_River *ui;
 };

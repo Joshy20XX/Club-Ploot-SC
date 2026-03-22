@@ -18,6 +18,39 @@ Moon_River::~Moon_River()
     delete ui;
 }
 
+//Speech stuff
+void Moon_River::on_ploot_text_send_clicked()
+{
+    //Read what is wanted to be said
+    QString text = ui->ploot_text_bar->toPlainText();
+
+    if (!text.isEmpty()) {
+
+        //Shove it into a label
+        QLabel *speech = new QLabel(text, this);
+
+        speech->setAlignment(Qt::AlignCenter);
+        speech->adjustSize();
+
+        //Position it above the player
+        int x = ui->ploot_player->x();
+        int y = ui->ploot_player->y() - speech->height() - 10;
+
+        speech->move(x, y);
+        speech->show();
+
+        //Give it a timer
+        QTimer::singleShot(5000, speech, [=]() {
+            speech->deleteLater();
+        });
+
+        //Clear the text bar
+        ui->ploot_text_bar->clear();
+
+        return; // prevent newline
+    }
+}
+
 //This is setting the name of the Ploot in Moon River
 void Moon_River::setLabelText(const QString &text)
 {
