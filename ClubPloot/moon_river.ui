@@ -94,14 +94,17 @@
     <property name="horizontalScrollBarPolicy">
      <enum>Qt::ScrollBarPolicy::ScrollBarAlwaysOff</enum>
     </property>
+    <property name="undoRedoEnabled">
+     <bool>false</bool>
+    </property>
     <property name="lineWrapMode">
-     <enum>QPlainTextEdit::LineWrapMode::NoWrap</enum>
+     <enum>QPlainTextEdit::LineWrapMode::WidgetWidth</enum>
     </property>
     <property name="plainText">
      <string/>
     </property>
     <property name="maximumBlockCount">
-     <number>2</number>
+     <number>3</number>
     </property>
     <property name="backgroundVisible">
      <bool>false</bool>

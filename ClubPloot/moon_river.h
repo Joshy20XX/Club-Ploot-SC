@@ -16,15 +16,17 @@ public:
     ~Moon_River();
 
 void setLabelText(const QString &text);
+void parseCussWords();
 
 protected:
     void mousePressEvent(QMouseEvent *event) override;
 
 
 private slots:
+
     void on_ploot_text_send_clicked();
 
-    void on_ploot_text_bar_blockCountChanged(int newBlockCount);
+    void on_ploot_text_bar_textChanged();
 
 private:
     Ui::Moon_River *ui;
