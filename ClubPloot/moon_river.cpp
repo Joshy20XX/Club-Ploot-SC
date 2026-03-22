@@ -47,7 +47,7 @@ void Moon_River::on_ploot_text_send_clicked()
         //Clear the text bar
         ui->ploot_text_bar->clear();
 
-        return; // prevent newline
+        return;
     }
 }
 
