@@ -35,7 +35,7 @@ void StartMenu::on_actionAbout_triggered()
     aboutBox.setIcon(QMessageBox::Information);
     aboutBox.setText("Club Ploot\n Authors: Nick Mel, Samarth Muthyala, Edgar Zayas, and Josh Ottey");
     aboutBox.setDefaultButton(QMessageBox::Ok);
-    int ret = aboutBox.exec();
+    aboutBox.exec();
 }
 
 
