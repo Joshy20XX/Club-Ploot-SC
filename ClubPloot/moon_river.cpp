@@ -2,9 +2,10 @@
 #include "ui_moon_river.h"
 
 #include <QMouseEvent>
+#include <QEvent>
 #include <QPropertyAnimation>
 #include <QDebug>
-
+#include <QTimer>
 
 Moon_River::Moon_River(QWidget *parent)
     : QMainWindow(parent)
@@ -27,7 +28,7 @@ void Moon_River::on_ploot_text_send_clicked()
     if (!text.isEmpty()) {
 
         //Shove it into a label
-        QLabel *speech = new QLabel(text, this);
+        QLabel *speech = new QLabel(text, this);;
 
         speech->setAlignment(Qt::AlignCenter);
         speech->adjustSize();
@@ -75,5 +76,11 @@ void Moon_River::mousePressEvent(QMouseEvent *event)
     anim->setStartValue(ploot_pos);
     anim->setEndValue(QRect(x, y, ui->ploot_player->width(), ui->ploot_player->height()));
     anim->start();
+}
+
+//This is for when you press Enter to send the text. Change the max text block count to 2 and it'll trigger this
+void Moon_River::on_ploot_text_bar_blockCountChanged(int newBlockCount)
+{
+    Moon_River::on_ploot_text_send_clicked();
 }
 

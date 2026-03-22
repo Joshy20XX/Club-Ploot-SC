@@ -2,7 +2,6 @@
 #define MOON_RIVER_H
 
 #include <QMainWindow>
-#include <QTimer>
 
 namespace Ui {
 class Moon_River;
@@ -24,6 +23,8 @@ protected:
 
 private slots:
     void on_ploot_text_send_clicked();
+
+    void on_ploot_text_bar_blockCountChanged(int newBlockCount);
 
 private:
     Ui::Moon_River *ui;
