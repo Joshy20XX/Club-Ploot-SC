@@ -31,7 +31,7 @@
     <property name="geometry">
      <rect>
       <x>270</x>
-      <y>30</y>
+      <y>40</y>
       <width>241</width>
       <height>231</height>
      </rect>
@@ -165,10 +165,10 @@
     </property>
    </widget>
    <zorder>moon_river_background</zorder>
-   <zorder>ploot_text_bar</zorder>
    <zorder>ploot_player</zorder>
    <zorder>moon_river_tree</zorder>
    <zorder>ploot_text_send</zorder>
+   <zorder>ploot_text_bar</zorder>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
   <action name="actionExit">
