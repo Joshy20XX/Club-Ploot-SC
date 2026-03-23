@@ -10,6 +10,8 @@
 #include <QFile>
 #include <iostream>
 #include <QVector>
+#include <QPixmap>
+#include <QPainter>
 
 QVector<QString> badwords;
 bool found_badword = false;
@@ -27,6 +29,21 @@ Moon_River::~Moon_River()
     delete ui;
 }
 
+QPixmap Tint_image(const QPixmap &src, const QColor &color)
+{
+    QPixmap result(src.size());
+    result.fill(Qt::transparent);
+
+    QPainter painter(&result);
+    painter.drawPixmap(0, 0, src);
+
+    painter.setCompositionMode(QPainter::CompositionMode_SourceIn);
+    painter.fillRect(result.rect(), color);
+
+    painter.end();
+
+    return result;
+}
 
 void Moon_River::parseCussWords() {
     //Open the bad words file
@@ -71,6 +88,7 @@ void Moon_River::on_ploot_text_send_clicked()
     //Now we can process it
     if (!text.isEmpty()) {
 
+        QLabel *speech_bubble = new QLabel(this);
         QLabel *speech = new QLabel(text, this);;
 
         speech->setAlignment(Qt::AlignCenter);
@@ -78,15 +96,30 @@ void Moon_River::on_ploot_text_send_clicked()
 
         //Position it above the player
         int x = ui->ploot_player->x();
-        int y = ui->ploot_player->y() - speech->height() - 10;
+        int y = ui->ploot_player->y() - speech->height() - 20;
 
-        speech->move(x, y);
-        speech->show();
+        //Speech Bubble Image
+        QPixmap pixmap(":/images/speech_bubble_mid.png");
+
+        //Tint the bubble (As soon as we parse the ploot we will put its actual color here)
+        QPixmap tinted = Tint_image(pixmap, QColor(165, 35, 65));
+
+        speech_bubble->setPixmap(tinted);
+        speech_bubble->resize(tinted.size());
+
+        //Place both the speech bubble and the text.
+        speech->move(x + 6, y);
+        speech_bubble->move(x, y);
+        speech_bubble->show();
+        speech->show(); 
+
 
         //Give it a timer
         QTimer::singleShot(5000, speech, [=]() {
             speech->deleteLater();
+            speech_bubble->deleteLater();
         });
+
 
         //Clear the text bar
         ui->ploot_text_bar->clear();
