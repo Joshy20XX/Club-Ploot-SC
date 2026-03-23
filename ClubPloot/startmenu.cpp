@@ -2,8 +2,8 @@
 #include "./ui_startmenu.h"
 #include <QMessageBox>
 
-#include "moon_river.h"
 #include "ploot_select.h"
+#include "moon_river.h"
 
 StartMenu::StartMenu(QWidget *parent)
     : QMainWindow(parent)
