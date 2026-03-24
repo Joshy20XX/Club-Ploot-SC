@@ -12,7 +12,9 @@
 #include <QVector>
 #include <QPixmap>
 #include <QPainter>
+#include <QFileInfo>
 
+//For parsing the bad words
 QVector<QString> badwords;
 bool found_badword = false;
 
@@ -47,19 +49,25 @@ QPixmap Tint_image(const QPixmap &src, const QColor &color)
 
 void Moon_River::parseCussWords() {
     //Open the bad words file
-    QString bad_file = "bad_words.txt";
-    QFile file(bad_file);
+    QString file = "../../bad_words.txt";
+    QFile bad_file(file);
 
-    //If the file exists and is open
-    if (file.open(QIODevice::ReadOnly | QIODevice::Text)) {
-        QTextStream in(&file);
+    //if the file doesn't exist, return
+    if (!bad_file.exists()) {
+        qDebug() << "File open failed. File does not exist.";
+        return;
+    }
+
+    //If the file exists and is open, get the text files
+    if (bad_file.open(QIODevice::ReadOnly | QIODevice::Text)) {
+        QTextStream in(&bad_file);
         qDebug() << "Badwords list:";
         while (!in.atEnd()) {
             QString line = in.readLine();
             qDebug() << line;
             badwords.push_back(line);
         }
-        file.close();
+        bad_file.close();
     } else {
         qDebug() << "Failed opening file";
     }
