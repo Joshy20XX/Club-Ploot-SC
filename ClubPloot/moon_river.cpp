@@ -48,26 +48,37 @@ QPixmap Tint_image(const QPixmap &src, const QColor &color)
 }
 
 void Moon_River::parseCussWords() {
-    //Open the bad words file
+    //Get the bad words file with its associated path
     QString file = "../../bad_words.txt";
-    QFile bad_file(file);
+    QFileInfo bad_info(file);
+
+    //If the path is empty because the file doesn't exist, don't read
+    if (!bad_info.exists()) {
+        qDebug() << "File's relative path doesn't exist.";
+        return;
+    }
+
+    QString badfilepath = bad_info.canonicalFilePath();
+
+    qDebug() << "File path: " << badfilepath;
+    QFile badfile(badfilepath);
 
     //if the file doesn't exist, return
-    if (!bad_file.exists()) {
+    if (!badfile.exists()) {
         qDebug() << "File open failed. File does not exist.";
         return;
     }
 
     //If the file exists and is open, get the text files
-    if (bad_file.open(QIODevice::ReadOnly | QIODevice::Text)) {
-        QTextStream in(&bad_file);
+    if (badfile.open(QIODevice::ReadOnly | QIODevice::Text)) {
+        QTextStream in(&badfile);
         qDebug() << "Badwords list:";
         while (!in.atEnd()) {
             QString line = in.readLine();
             qDebug() << line;
             badwords.push_back(line);
         }
-        bad_file.close();
+        badfile.close();
     } else {
         qDebug() << "Failed opening file";
     }

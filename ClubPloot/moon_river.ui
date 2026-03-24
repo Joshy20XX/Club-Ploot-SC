@@ -167,11 +167,25 @@
      <string>Send</string>
     </property>
    </widget>
+   <widget class="QToolButton" name="toolButton">
+    <property name="geometry">
+     <rect>
+      <x>470</x>
+      <y>0</y>
+      <width>151</width>
+      <height>23</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>About your Ploot</string>
+    </property>
+   </widget>
    <zorder>moon_river_background</zorder>
    <zorder>ploot_player</zorder>
    <zorder>moon_river_tree</zorder>
    <zorder>ploot_text_send</zorder>
    <zorder>ploot_text_bar</zorder>
+   <zorder>toolButton</zorder>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
   <action name="actionExit">
