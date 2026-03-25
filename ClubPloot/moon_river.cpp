@@ -14,6 +14,18 @@
 #include <QPainter>
 #include <QFileInfo>
 
+int player_normal;
+int player_poison;
+int player_fire;
+int player_devil;
+int player_whimsy;
+int player_parasitic;
+int player_bunny;
+int player_rat;
+int player_scary;
+int player_gloom;
+QColor player_color(255, 255, 255);
+
 //For parsing the bad words
 QVector<QString> badwords;
 bool found_badword = false;
@@ -121,7 +133,7 @@ void Moon_River::on_ploot_text_send_clicked()
         QPixmap pixmap(":/images/speech_bubble_mid.png");
 
         //Tint the bubble (As soon as we parse the ploot we will put its actual color here)
-        QPixmap tinted = Tint_image(pixmap, QColor(165, 35, 65));
+        QPixmap tinted = Tint_image(pixmap, player_color);
 
         speech_bubble->setPixmap(tinted);
         speech_bubble->resize(tinted.size());
