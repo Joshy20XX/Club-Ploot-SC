@@ -121,7 +121,7 @@ void ploot_select::on_select_ploot_button_clicked()
         }
 
     }
-
+        ui->ploot_label->setText("Your Ploot is " + ploot_name);
 
 }
 

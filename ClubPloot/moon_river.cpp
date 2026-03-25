@@ -36,6 +36,7 @@ Moon_River::Moon_River(QWidget *parent)
 {
     ui->setupUi(this);
     Moon_River::parseCussWords();
+    ui->scrollArea->hide();
 }
 
 Moon_River::~Moon_River()
@@ -199,5 +200,17 @@ void Moon_River::on_ploot_text_bar_textChanged()
     if (lineCount > 3) {
         cursor.deletePreviousChar();
     }
+}
+
+
+void Moon_River::on_toolButton_clicked(bool checked)
+{
+    ui->scrollArea->show();
+}
+
+
+void Moon_River::on_pushButton_clicked(bool checked)
+{
+    ui->scrollArea->hide();
 }
 

@@ -28,6 +28,10 @@ private slots:
 
     void on_ploot_text_bar_textChanged();
 
+    void on_toolButton_clicked(bool checked);
+
+    void on_pushButton_clicked(bool checked);
+
 private:
     Ui::Moon_River *ui;
 };
