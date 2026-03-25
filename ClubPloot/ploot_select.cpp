@@ -76,7 +76,7 @@ void ploot_select::on_select_ploot_button_clicked()
     if (!fileName.isEmpty()) {
         QFile file(fileName);
 
-        //Read the ploot file and specifcally get the 12th line (It's Name)
+        //Read Ploot File
         if (file.open(QIODevice::ReadOnly | QIODevice::Text)) {
             QTextStream in(&file);
 
