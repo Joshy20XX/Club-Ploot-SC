@@ -16,6 +16,9 @@ public:
     ~Moon_River();
 
 void setLabelText(const QString &text);
+
+void setShadowColor(const QColor &color);
+
 void parseCussWords();
 
 protected:

@@ -10,6 +10,9 @@
     <height>430</height>
    </rect>
   </property>
+  <property name="acceptDrops">
+   <bool>false</bool>
+  </property>
   <property name="windowTitle">
    <string>Moon River - Club Ploot</string>
   </property>
@@ -119,47 +122,6 @@
      <string>Say Something!</string>
     </property>
    </widget>
-   <widget class="QWidget" name="ploot_player" native="true">
-    <property name="geometry">
-     <rect>
-      <x>50</x>
-      <y>170</y>
-      <width>81</width>
-      <height>65</height>
-     </rect>
-    </property>
-    <property name="text" stdset="0">
-     <string/>
-    </property>
-    <layout class="QVBoxLayout" name="ploot_layout">
-     <property name="leftMargin">
-      <number>3</number>
-     </property>
-     <property name="topMargin">
-      <number>3</number>
-     </property>
-     <property name="rightMargin">
-      <number>3</number>
-     </property>
-     <property name="bottomMargin">
-      <number>3</number>
-     </property>
-     <item>
-      <widget class="QLabel" name="ploot_player_sprite">
-       <property name="text">
-        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;img src=&quot;:/images/Ploot_Super_Tiny.png&quot;/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QLabel" name="ploot_name">
-       <property name="text">
-        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;PLOOT NAME&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-       </property>
-      </widget>
-     </item>
-    </layout>
-   </widget>
    <widget class="QPushButton" name="ploot_text_send">
     <property name="geometry">
      <rect>
@@ -218,7 +180,7 @@
       <rect>
        <x>0</x>
        <y>0</y>
-       <width>265</width>
+       <width>262</width>
        <height>309</height>
       </rect>
      </property>
@@ -368,13 +330,88 @@
      </widget>
     </widget>
    </widget>
+   <widget class="QWidget" name="ploot_player" native="true">
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>180</y>
+      <width>120</width>
+      <height>80</height>
+     </rect>
+    </property>
+    <widget class="QLabel" name="ploot_shadow">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>40</y>
+       <width>75</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="acceptDrops">
+      <bool>true</bool>
+     </property>
+     <property name="autoFillBackground">
+      <bool>false</bool>
+     </property>
+     <property name="text">
+      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;img src=&quot;:/images/Ploot_Shadow.png&quot;/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+     </property>
+     <property name="pixmap">
+      <pixmap resource="resources/img-resources.qrc">:/images/Ploot_Shadow.png</pixmap>
+     </property>
+    </widget>
+    <widget class="QWidget" name="ploot" native="true">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>10</y>
+       <width>81</width>
+       <height>65</height>
+      </rect>
+     </property>
+     <property name="text" stdset="0">
+      <string/>
+     </property>
+     <layout class="QVBoxLayout" name="ploot_layout">
+      <property name="leftMargin">
+       <number>3</number>
+      </property>
+      <property name="topMargin">
+       <number>3</number>
+      </property>
+      <property name="rightMargin">
+       <number>3</number>
+      </property>
+      <property name="bottomMargin">
+       <number>3</number>
+      </property>
+      <item>
+       <widget class="QLabel" name="ploot_player_sprite">
+        <property name="text">
+         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;img src=&quot;:/images/Ploot_Super_Tiny.png&quot;/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLabel" name="ploot_name">
+        <property name="text">
+         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;PLOOT NAME&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+     <zorder>ploot_name</zorder>
+     <zorder>ploot_player_sprite</zorder>
+    </widget>
+   </widget>
    <zorder>moon_river_background</zorder>
    <zorder>ploot_player</zorder>
    <zorder>moon_river_tree</zorder>
-   <zorder>ploot_text_send</zorder>
-   <zorder>ploot_text_bar</zorder>
-   <zorder>toolButton</zorder>
    <zorder>scrollArea</zorder>
+   <zorder>ploot_text_bar</zorder>
+   <zorder>ploot_text_send</zorder>
+   <zorder>toolButton</zorder>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
   <action name="actionExit">
@@ -391,6 +428,8 @@
    </property>
   </action>
  </widget>
- <resources/>
+ <resources>
+  <include location="resources/img-resources.qrc"/>
+ </resources>
  <connections/>
 </ui>

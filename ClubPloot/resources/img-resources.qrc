@@ -6,5 +6,6 @@
         <file>images/Ploot_Super_Tiny.png</file>
         <file>images/Ploot_Select_Background.png</file>
         <file>images/speech_bubble_mid.png</file>
+        <file>images/Ploot_Shadow.png</file>
     </qresource>
 </RCC>

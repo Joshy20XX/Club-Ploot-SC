@@ -139,7 +139,7 @@ void Moon_River::on_ploot_text_send_clicked()
         QPixmap pixmap(":/images/speech_bubble_mid.png");
 
         //Tint the bubble (As soon as we parse the ploot we will put its actual color here)
-        QPixmap tinted = Tint_image(pixmap, player_color);
+        QPixmap tinted = Tint_image(pixmap, "#" + currentPloot->getColor().toLower());
 
         speech_bubble->setPixmap(tinted);
         speech_bubble->resize(tinted.size());
@@ -170,6 +170,15 @@ void Moon_River::setLabelText(const QString &text)
 {
     ui->ploot_name->setText(text);
     ui->ploot_name->setAlignment(Qt::AlignCenter);
+}
+
+//Setting ploot shadow color
+void Moon_River::setShadowColor(const QColor &color)
+{
+    QPixmap pixmap(":/images/Ploot_Shadow.png");
+    QPixmap shadow_tint = Tint_image(pixmap, color);
+    ui->ploot_shadow->setPixmap(shadow_tint);
+    ui->ploot_shadow->setAlignment(Qt::AlignCenter);
 }
 
 void Moon_River::mousePressEvent(QMouseEvent *event)

@@ -61,6 +61,10 @@ void ploot_select::on_pushButton_clicked()
         window->setLabelText(ploot_name);
     }
 
+    if (ploot_color != ""){
+        window->setShadowColor("#" + ploot_color.toLower());
+    }
+
     window->show();
     this->hide();
 
@@ -83,7 +87,7 @@ void ploot_select::on_select_ploot_button_clicked()
         if (file.open(QIODevice::ReadOnly | QIODevice::Text)) {
             QTextStream in(&file);
 
-            for (int i = 1; i <= 26; i++) {
+            for (int i = 1; i <= 27; i++) {
                 if (in.atEnd()) break;
 
                 QString currentLine = in.readLine();
