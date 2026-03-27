@@ -1,5 +1,8 @@
 #include "moon_river.h"
 #include "ui_moon_river.h"
+#include "ploot_select.h"
+#include "ui_ploot_select.h"
+#include "ploot.h"
 
 #include <QMouseEvent>
 #include <QEvent>
@@ -29,6 +32,7 @@ QColor player_color(255, 255, 255);
 //For parsing the bad words
 QVector<QString> badwords;
 bool found_badword = false;
+ploot* currentPloot = &new_ploot;
 
 Moon_River::Moon_River(QWidget *parent)
     : QMainWindow(parent)
@@ -109,7 +113,7 @@ void Moon_River::on_ploot_text_send_clicked()
     QString word;
     while (stream >> word) {
         for (const auto &cussword : badwords) {
-            if (word == cussword) {
+            if (word.toLower() == cussword) {
                 found_badword = true;
             }
         }
@@ -121,7 +125,8 @@ void Moon_River::on_ploot_text_send_clicked()
     if (!text.isEmpty()) {
 
         QLabel *speech_bubble = new QLabel(this);
-        QLabel *speech = new QLabel(text, this);;
+        QLabel *speech = new QLabel(text, this);
+        speech->setStyleSheet("color: black");
 
         speech->setAlignment(Qt::AlignCenter);
         speech->adjustSize();
@@ -155,9 +160,7 @@ void Moon_River::on_ploot_text_send_clicked()
 
         //Clear the text bar
         ui->ploot_text_bar->clear();
-
         found_badword = false;
-
         return;
     }
 }
@@ -206,6 +209,23 @@ void Moon_River::on_ploot_text_bar_textChanged()
 void Moon_River::on_toolButton_clicked(bool checked)
 {
     ui->scrollArea->show();
+    QString name = ui->ploot_name->text();
+
+    ui->ploot_name_info->setText("Name: " + name);
+    ui->ploot_age_info->setText("Age: " + currentPloot->getAge());
+    ui->ploot_normal_info->setText("Normal: " + currentPloot->getAge());
+    ui->ploot_poison_info->setText("Poison: " + currentPloot->getPoison());
+    ui->ploot_fire_info->setText("Fire: " + currentPloot->getFire());
+    ui->ploot_devil_info->setText("Devil: " + currentPloot->getDevil());
+    ui->ploot_whimsy_info->setText("Whimsy: " + currentPloot->getWhimsy());
+    ui->ploot_parasitic_info->setText("Parasitic: " + currentPloot->getParasitic());
+    ui->ploot_bunny_info->setText("Bunny: " + currentPloot->getBunny());
+    ui->ploot_rat_info->setText("Rat: " + currentPloot->getRat());
+    ui->ploot_scary_info->setText("Scary: " + currentPloot->getScary());
+    ui->ploot_gloom_info->setText("Gloom: " + currentPloot->getGloom());
+    ui->ploot_color_info->setText("Color: " + currentPloot->getColor());
+
+    //ui->ploot_poison_info->setText("Poison: " + new_ploot.getPoison());
 }
 
 

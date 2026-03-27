@@ -2,6 +2,8 @@
 #include "ui_ploot_select.h"
 
 #include "moon_river.h"
+#include "ploot.h"
+#include <iostream>
 
 #include <QFileDialog>
 
@@ -16,6 +18,7 @@ QString ploot_bunny_val;
 QString ploot_rat_val;
 QString ploot_scary_val;
 QString ploot_gloom_val;
+QString ploot_color;
 QString ploot_name;
 QString ploot_age;
 QString ploot_kills;
@@ -59,8 +62,8 @@ void ploot_select::on_pushButton_clicked()
     }
 
     window->show();
-
     this->hide();
+
 }
 
 //Opening the Ploot File
@@ -104,25 +107,39 @@ void ploot_select::on_select_ploot_button_clicked()
                 case 15: ploot_orgin = currentLine; ploot_orgin = ploot_orgin.mid(7); break;
                 case 16: ploot_shiny = currentLine; ploot_shiny = ploot_shiny.mid(7); break;
                 case 17: ploot_accent = currentLine; ploot_accent = ploot_accent.mid(8); break;
+                case 18: ploot_color = currentLine; ploot_color = ploot_color.mid(7); break;
 
                 //PAST THIS POINT IS OUR BASE 64 STUFF! UNTESTED TO SEE IF IT ACTUALLY GRABS IT ALL PROPERLY!
-                case 18: ploot_call_sound = currentLine; ploot_call_sound = ploot_call_sound.mid(12); break;
-                case 19: ploot_collection_walk_sound = currentLine; ploot_collection_walk_sound = ploot_collection_walk_sound.mid(23); break;
-                case 20: ploot_completed_collection_sound = currentLine; ploot_completed_collection_sound = ploot_completed_collection_sound.mid(28); break;
-                case 21: ploot_death_sound = currentLine; ploot_death_sound = ploot_death_sound.mid(13); break;
-                case 22: ploot_hit_sound = currentLine; ploot_hit_sound = ploot_hit_sound.mid(11); break;
-                case 23: ploot_panic_sound = currentLine; ploot_panic_sound = ploot_panic_sound.mid(13); break;
-                case 24: ploot_rare_sound = currentLine; ploot_rare_sound = ploot_rare_sound.mid(12); break;
-                case 25: ploot_thrown_sound = currentLine; ploot_thrown_sound = ploot_thrown_sound.mid(14); break;
-                case 26: ploot_sparkle = currentLine; ploot_sparkle = ploot_sparkle.mid(9); break;
+                case 19: ploot_call_sound = currentLine; ploot_call_sound = ploot_call_sound.mid(12); break;
+                case 20: ploot_collection_walk_sound = currentLine; ploot_collection_walk_sound = ploot_collection_walk_sound.mid(23); break;
+                case 21: ploot_completed_collection_sound = currentLine; ploot_completed_collection_sound = ploot_completed_collection_sound.mid(28); break;
+                case 22: ploot_death_sound = currentLine; ploot_death_sound = ploot_death_sound.mid(13); break;
+                case 23: ploot_hit_sound = currentLine; ploot_hit_sound = ploot_hit_sound.mid(11); break;
+                case 24: ploot_panic_sound = currentLine; ploot_panic_sound = ploot_panic_sound.mid(13); break;
+                case 25: ploot_rare_sound = currentLine; ploot_rare_sound = ploot_rare_sound.mid(12); break;
+                case 26: ploot_thrown_sound = currentLine; ploot_thrown_sound = ploot_thrown_sound.mid(14); break;
+                case 27: ploot_sparkle = currentLine; ploot_sparkle = ploot_sparkle.mid(9); break;
             }
 
             file.close();
         }
 
     }
-        ui->ploot_label->setText("Your Ploot is " + ploot_name);
 
-}
+    //Grab everything parsed and initialize it. It will be actually used in Moon River
+    ui->ploot_label->setText("Your Ploot is " + ploot_name);
+    new_ploot.setAge(ploot_age);
+    new_ploot.setNormal(ploot_normal_val);
+    new_ploot.setPoison(ploot_poison_val);
+    new_ploot.setFire(ploot_fire_val);
+    new_ploot.setDevil(ploot_devil_val);
+    new_ploot.setWhimsy(ploot_whimsy_val);
+    new_ploot.setParasitic(ploot_parasitic_val);
+    new_ploot.setBunny(ploot_bunny_val);
+    new_ploot.setRat(ploot_rat_val);
+    new_ploot.setScary(ploot_scary_val);
+    new_ploot.setGloom(ploot_gloom_val);
+    new_ploot.setColor(ploot_color);
 
+    }
 }
