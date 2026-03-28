@@ -14,6 +14,7 @@ ploot::ploot() {
     rat = "";
     scary = "";
     gloom = "";
+    color = "";
 }
 
 //Ploot getter setters

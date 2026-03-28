@@ -16,6 +16,7 @@
 #include <QPixmap>
 #include <QPainter>
 #include <QFileInfo>
+#include <QRegularExpression>
 
 int player_normal;
 int player_poison;
@@ -107,9 +108,14 @@ void Moon_River::on_ploot_text_send_clicked()
     //Read what is wanted to be said
     QString text = ui->ploot_text_bar->toPlainText();
 
+    //We can make a temp place for the string to account for
+    //further checks like punctuation and rudeness level
+    QString temp = text;
+    temp.remove(QRegularExpression("[[:punct:]]"));
+
     //Open another QTextStream to stream each word in the sent string
     //before it's sent to the chat room.
-    QTextStream stream(&text);
+    QTextStream stream(&temp);
     QString word;
     while (stream >> word) {
         for (const auto &cussword : badwords) {
@@ -222,7 +228,7 @@ void Moon_River::on_toolButton_clicked(bool checked)
 
     ui->ploot_name_info->setText("Name: " + name);
     ui->ploot_age_info->setText("Age: " + currentPloot->getAge());
-    ui->ploot_normal_info->setText("Normal: " + currentPloot->getAge());
+    ui->ploot_normal_info->setText("Normal: " + currentPloot->getNormal());
     ui->ploot_poison_info->setText("Poison: " + currentPloot->getPoison());
     ui->ploot_fire_info->setText("Fire: " + currentPloot->getFire());
     ui->ploot_devil_info->setText("Devil: " + currentPloot->getDevil());
@@ -233,8 +239,7 @@ void Moon_River::on_toolButton_clicked(bool checked)
     ui->ploot_scary_info->setText("Scary: " + currentPloot->getScary());
     ui->ploot_gloom_info->setText("Gloom: " + currentPloot->getGloom());
     ui->ploot_color_info->setText("Color: " + currentPloot->getColor());
-
-    //ui->ploot_poison_info->setText("Poison: " + new_ploot.getPoison());
+    //qDebug() << "Ploot's normal: " << ui->ploot_normal_info->text();
 }
 
 
