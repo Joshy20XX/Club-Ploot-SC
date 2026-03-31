@@ -1,11 +1,11 @@
-#include "startmenu.h"
+#include "login_sceen.h"
 
 #include <QApplication>
 
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
-    StartMenu w;
+    login_sceen w;
     w.show();
     return QCoreApplication::exec();
 }
