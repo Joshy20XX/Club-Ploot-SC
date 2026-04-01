@@ -21,6 +21,8 @@ void setShadowColor(const QColor &color);
 
 void parseCussWords();
 
+int countRudeness(const QString &temp_text);
+
 protected:
     void mousePressEvent(QMouseEvent *event) override;
 

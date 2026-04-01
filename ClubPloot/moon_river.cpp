@@ -17,6 +17,8 @@
 #include <QPainter>
 #include <QFileInfo>
 #include <QRegularExpression>
+#include <QRegularExpressionMatch>
+#include <QRegularExpressionMatchIterator>
 
 int player_normal;
 int player_poison;
@@ -28,6 +30,7 @@ int player_bunny;
 int player_rat;
 int player_scary;
 int player_gloom;
+int player_rudeness = 0;
 QColor player_color(255, 255, 255);
 
 //For parsing the bad words
@@ -63,6 +66,23 @@ QPixmap Tint_image(const QPixmap &src, const QColor &color)
     painter.end();
 
     return result;
+}
+
+//Count for rudeness
+int Moon_River::countRudeness(const QString &temp_text) {
+    int count = 0;
+    int rudeness = 0;
+
+    QRegularExpression re("[A-Z!@#$%^&*<>'()*+,-./:;]");
+    QString subject(temp_text);
+    QRegularExpressionMatchIterator i = re.globalMatch(subject);
+
+    while (i.hasNext()) {
+        if (count > 8) rudeness++;
+        i.next(); //Get next character
+        count++;
+    }
+    return rudeness;
 }
 
 void Moon_River::parseCussWords() {
@@ -111,6 +131,12 @@ void Moon_River::on_ploot_text_send_clicked()
     //We can make a temp place for the string to account for
     //further checks like punctuation and rudeness level
     QString temp = text;
+
+    //Check for rudeness first
+    int rude_level = countRudeness(temp);
+    player_rudeness += rude_level;
+
+    //Then check for bad words
     temp.remove(QRegularExpression("[[:punct:]]"));
 
     //Open another QTextStream to stream each word in the sent string
@@ -125,7 +151,10 @@ void Moon_River::on_ploot_text_send_clicked()
         }
     }
 
-    if (found_badword) text = "NECTAR!"; //Change the text to this.
+    if (found_badword) {
+        text = "NECTAR!";
+        player_rudeness += 10; //Change the text to this.
+    }
 
     //Now we can process it
     if (!text.isEmpty()) {
@@ -239,7 +268,8 @@ void Moon_River::on_toolButton_clicked(bool checked)
     ui->ploot_scary_info->setText("Scary: " + currentPloot->getScary());
     ui->ploot_gloom_info->setText("Gloom: " + currentPloot->getGloom());
     ui->ploot_color_info->setText("Color: " + currentPloot->getColor());
-    //qDebug() << "Ploot's normal: " << ui->ploot_normal_info->text();
+    QString rudeness = QString::number(player_rudeness);
+    ui->ploot_rudeness_info->setText("Rudeness: " + rudeness);
 }
 
 

@@ -180,7 +180,7 @@
       <rect>
        <x>0</x>
        <y>0</y>
-       <width>262</width>
+       <width>265</width>
        <height>309</height>
       </rect>
      </property>
@@ -326,6 +326,13 @@
          </property>
         </widget>
        </item>
+       <item>
+        <widget class="QLabel" name="ploot_rudeness_info">
+         <property name="text">
+          <string>rudeness</string>
+         </property>
+        </widget>
+       </item>
       </layout>
      </widget>
     </widget>
@@ -355,7 +362,7 @@
       <bool>false</bool>
      </property>
      <property name="text">
-      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;img src=&quot;:/images/Ploot_Shadow.png&quot;/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+      <string/>
      </property>
      <property name="pixmap">
       <pixmap resource="resources/img-resources.qrc">:/images/Ploot_Shadow.png</pixmap>
