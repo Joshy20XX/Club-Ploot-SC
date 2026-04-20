@@ -35,6 +35,8 @@ QString ploot_rare_sound;
 QString ploot_thrown_sound;
 QString ploot_sparkle;
 
+bool validated = false;
+
 ploot_select::ploot_select(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::ploot_select)
@@ -73,6 +75,10 @@ void ploot_select::on_pushButton_clicked()
 //Opening the Ploot File
 void ploot_select::on_select_ploot_button_clicked()
 {
+    //Make sure we aren't validated
+    validated = false;
+    ui->pushButton->setEnabled(false);
+
     QString fileName = QFileDialog::getOpenFileName(
         this,
         "Open Ploot",
@@ -128,10 +134,54 @@ void ploot_select::on_select_ploot_button_clicked()
             file.close();
         }
 
+            //Validation of Ploot
+            if (ploot_color != "") {
+                if (ploot_normal_val.toInt() + ploot_poison_val.toInt() + ploot_fire_val.toInt() + ploot_devil_val.toInt() + ploot_whimsy_val.toInt() + ploot_parasitic_val.toInt() + ploot_bunny_val.toInt() + ploot_rat_val.toInt() + ploot_scary_val.toInt() + ploot_gloom_val.toInt() == 100){
+
+                    //Check Timestamp
+                    QDateTime dt = QDateTime::fromString(time_stamp, "M/d/yyyy h:mm:ss AP");
+                    QDateTime now = QDateTime::currentDateTime();
+
+                    if (dt.isValid()) {
+                        int daysDiff = dt.daysTo(now);
+
+                        //Check if the ploot is still alive
+                        if (daysDiff >= 0 && daysDiff <= 11 - ploot_age.toInt()) {
+                            ui->pushButton->setEnabled(true);
+                            validated = true;
+                            ploot_age = QString::number(ploot_age.toInt() + daysDiff);
+                        } else {
+                            //Ploot is born in the future
+                            if ((ploot_age.toInt() + daysDiff) < 0){
+                                ui->ploot_label->setText("Your Ploot is illegal!");
+                            } else {
+                                //Ploot is too old
+                                ui->ploot_label->setText("Your Ploot is dead!");
+                            }
+
+
+                        }
+
+                    } else {
+                        //Ploot doesn't have proper time stamp
+                        ui->ploot_label->setText("Your Ploot doesn't have a proper time stamp!");
+                    }
+
+                } else {
+                    //Lacks proper genetic code
+                    ui->ploot_label->setText("Your Ploot lacks proper genetic code!");
+                }
+            } else {
+                //Lacks full read
+                ui->ploot_label->setText("Your Ploot is bad!");
+            }
+
     }
 
     //Grab everything parsed and initialize it. It will be actually used in Moon River
-    ui->ploot_label->setText("Your Ploot is " + ploot_name);
+    if (validated == true){
+        ui->ploot_label->setText("Your Ploot is " + ploot_name);
+    }
     new_ploot.setAge(ploot_age);
     new_ploot.setNormal(ploot_normal_val);
     new_ploot.setPoison(ploot_poison_val);
