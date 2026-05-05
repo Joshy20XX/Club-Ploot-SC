@@ -28,7 +28,8 @@ if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
         moon_river.h moon_river.cpp moon_river.ui
         ploot_select.h ploot_select.cpp ploot_select.ui
         ploot.h ploot.cpp
-        login_sceen.h login_sceen.cpp login_sceen.ui
+        login_screen.h login_screen.cpp login_screen.ui
+        base64.hpp
     )
 # Define target properties for Android with Qt 6 as:
 #    set_property(TARGET ClubPloot APPEND PROPERTY QT_ANDROID_PACKAGE_SOURCE_DIR
